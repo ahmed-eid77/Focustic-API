@@ -15,7 +15,6 @@ class CommunityResource extends JsonResource
      */
     public function toArray($request)
     {
-        $userName = User::findOrFail($this->created_by);
 
         return [
             'id' => (string) $this->id,
@@ -23,7 +22,7 @@ class CommunityResource extends JsonResource
                 'name'        => $this->name,
                 'description' => $this->description,
                 'users_count' => $this->users_count,
-                'created_by'  => $userName->id
+                'created_by'  => $this->created_by
             ],
             'relationships' => [
                 'users' => UserResource::collection($this->users)

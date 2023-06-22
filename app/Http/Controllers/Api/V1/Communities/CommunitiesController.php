@@ -23,8 +23,7 @@ class CommunitiesController extends Controller
     {
         // - Show All communities
         try {
-
-            return CommunityResource::collection(Community::all());
+            return CommunityResource::collection(Community::with('users')->get());
         } catch (\Exception $e) {
             return $this->error('', 'Something went wrong', 501);
         }

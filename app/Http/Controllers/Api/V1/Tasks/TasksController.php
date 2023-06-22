@@ -48,7 +48,6 @@ class TasksController extends Controller
                 'reminder_date' => $request->reminder_date,
                 'repeat'        => $request->repeat
             ]);
-
             return new TasksResource($task);
         }catch(\Exception $e) {
             return $this->error('', 'Something went wrong!', 501);

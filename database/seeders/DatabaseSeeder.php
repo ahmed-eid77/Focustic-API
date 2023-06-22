@@ -15,7 +15,15 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(100)->create();
         \App\Models\Task::factory(100)->create();
         \App\Models\MySession::factory(100)->create();
-        \App\Models\Category::factory(7)->create();
+        // \App\Models\Category::factory(7)->create();
         \App\Models\Community::factory(30)->create();
+
+        // =================> Seeders
+        $this->call([
+            CommunityUserTableSeeder::class,
+            CategoryTableSeeder::class,
+            ExerciseSeeder::class,
+            MySessionTaskTableSeeder::class,
+        ]);
     }
 }

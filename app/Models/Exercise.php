@@ -18,6 +18,7 @@ class Exercise extends Model
         'duration',
         'cover',
         'link',
+        'category_id',
         'pivot'
     ];
 

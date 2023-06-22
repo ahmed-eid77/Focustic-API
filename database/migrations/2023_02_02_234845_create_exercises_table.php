@@ -22,7 +22,7 @@ class CreateExercisesTable extends Migration
             $table->integer('sets');
             $table->integer('duration');
 
-            $table->bigInteger('category_id')->unsigned()->index()->nullable();
+            $table->bigInteger('category_id')->unsigned()->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
