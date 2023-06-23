@@ -29,19 +29,19 @@ class DevicesHardwareController extends Controller
     {
         // - Function: To Store Hardware Date
         //=============================================
-        try{
+        try {
             $request->validated($request->all());
 
             $device = Device::create([
-                'user_id'     => 1,
+                'user_id'     => 102,
                 'rotation_x'  => (float) $request->json("rotation_x"),
                 'rotation_y'  => (float) $request->json("rotation_y"),
                 'rotation_z'  => (float) $request->json("rotation_z"),
                 'ultrasonic'  => (float) $request->json("ultrasonic"),
             ]);
             return new DevicesResource($device);
-        }catch(\Exception $e) {
-            return $this->error('','Something Went Wrong', 501);
+        } catch (\Exception $e) {
+            return $this->error('', 'Something Went Wrong', 501);
         }
     }
 
